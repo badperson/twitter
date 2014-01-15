@@ -7,6 +7,7 @@ var Twit = require('twit')
 
 var words = [ "an awful", "a bad", "a disastrous", "a sick", "a disappointing", "a sexy", "an atrocious", "a dreadful",
               "an unacceptable", "an abominable", "a deficient", "a godawful", "an unsatisfactory", "an inadequate"]
+  , prefixes = [ "So", "And", "Erm", "Pretty much" ]
 
 tweetlol()
 setInterval(tweetlol, 1000 * 60 * (Math.random() * 10) + 20)
@@ -25,11 +26,12 @@ function tweetlol() {
 
   var index = Math.floor(Math.random() * people.length)
     , person = people[index]
-    , wordindex = Math.floor(Math.random(words.length))
+    , wordindex = Math.floor(Math.random() * words.length)
+    , prefixindex = Math.floor(Math.random() * prefixes.length)
     , word = words[wordindex]
+    , prefix = prefixes[prefixindex]
 
-  T.post('statuses/update', { status: 'So, ' + person + " is " + word + " person"}, function(err, reply) {
+  T.post('statuses/update', { status: prefix + ', ' + person + " is " + word + " person"}, function(err, reply) {
     console.log('Told the world that ' + person + ' is a bad person', err, reply)
   })
-
 }
