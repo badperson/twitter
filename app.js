@@ -12,6 +12,8 @@ var words = [ "an awful", "a bad", "a disastrous", "a sick", "a disappointing", 
 tweetlol()
 setInterval(tweetlol, 1000 * 60 * (Math.random() * 10) + 20)
 
+console.log('Loaded with', people, 'who are all bad people')
+
 http.createServer(function(req, res) {
   res.end("Ben Hall is definitely a bad person", 200)
 }).listen(process.env.PORT || 8080)
