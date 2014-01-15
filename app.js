@@ -3,7 +3,7 @@ var Twit = require('twit')
   , fs = require('fs')
   , http = require('http')
   , config = require('./config')
-
+  , heroku = require("heroku-ping")
 
 var words = [ "an awful", "a bad", "a disastrous", "a sick", "a disappointing", "a sexy", "an atrocious", "a dreadful",
               "an unacceptable", "an abominable", "a deficient", "a godawful", "an unsatisfactory", "an inadequate"]
@@ -35,3 +35,8 @@ function tweetlol() {
     console.log('Told the world that ' + person + ' is a bad person', err, reply)
   })
 }
+
+
+heroku.ping({
+  apps: [{ name: 'badperson' }]
+})
