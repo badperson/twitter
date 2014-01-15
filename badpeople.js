@@ -1,1 +1,1 @@
-module.exports =  [ "@ben_hall", "@jen20" ]
+module.exports =  [ "@jen20" ]
